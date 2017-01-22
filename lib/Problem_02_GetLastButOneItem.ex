@@ -17,14 +17,10 @@ defmodule Problem02GetLastButOneItem do
     hd(tl(rev))
   end
 
-
-  def getLastButOneItem(items)
-  when is_list(items) && Enum.count(items) == 2 do
-    tl(items)
-  end
   def getLastButOneItem(items) when is_list(items) do
-
-
-
+    getItemNDeep(Enum.count(items),items)
   end
+
+  defp getItemNDeep(2,list), do: hd(list)
+  defp getItemNDeep(remaining, list), do: getItemNDeep(remaining-1, tl(list))
 end
