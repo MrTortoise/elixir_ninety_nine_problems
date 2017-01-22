@@ -21,6 +21,4 @@ defmodule Problem02GetLastButOneItemTest do
     res = Problem02GetLastButOneItem.getLastButOneItemReverse([1,2,3,4])
     assert res == 3
   end
-
-
 end
