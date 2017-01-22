@@ -14,5 +14,6 @@ defmodule Problem03GetKthItemInList do
   """
   def getKthItemFromList(1,list), do: hd(list)
   def getKthItemFromList(k, list) do getKthItemFromList(k-1,tl(list))
+
   end
 end
