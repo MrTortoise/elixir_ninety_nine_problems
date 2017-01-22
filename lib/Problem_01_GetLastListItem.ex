@@ -11,8 +11,11 @@ defmodule Problem01GetLastListItem do
       iex> Problem01GetLastListItem.getLastListItem([])
       []
 
+      iex> Problem01GetLastListItem.getLastListItem([:item])
+      [:item]
+
   """
   def getLastListItem([]), do: []
   def getLastListItem([item]), do: [item]
-  def getLastListItem([head|tail]), do: getLastListItem(tail)
+  def getLastListItem([_|tail]), do: getLastListItem(tail)
 end
