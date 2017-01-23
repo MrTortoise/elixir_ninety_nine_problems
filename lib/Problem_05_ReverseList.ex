@@ -14,9 +14,8 @@ defmodule Problem05ReverseList do
   """
   def reverseList([]), do: []
   def reverseList([a]), do: [a]
-  def reverseList(list) when is_list(list), do: reverseList(list,[])
+  def reverseList(list) when is_list(list), do: reverseList(tl(list),[hd(list)])
 
-  defp reverseList([],list), do: list
-  defp reverseList([a],list), do: reverseList([],a++list)
-  defp reverseList([h|t],reversed), do: reverseList(t,h++reversed)
+  defp reverseList([h|t],reversed), do: reverseList(t,[h]++reversed)
+  defp reverseList(a,list), do: a++list
 end
