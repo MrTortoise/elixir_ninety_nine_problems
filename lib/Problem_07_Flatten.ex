@@ -11,4 +11,6 @@ defmodule Problem07Flatten do
       []
   """
 def flatten([]), do: []
+def flatten([item]) when is_list(item), do: flatten(item)
+def flatten([h|t]), do: [h] ++ flatten([t])
 end
