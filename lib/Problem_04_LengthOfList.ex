@@ -13,6 +13,6 @@ defmodule Problem04LengthOfList do
 
   """
   def lengthOfList([]), do: 0
-  def lengthOfList([item]), do: 1
+  def lengthOfList([_]), do: 1
   def lengthOfList(items) when is_list(items), do: 1+ lengthOfList(tl(items))
 end
