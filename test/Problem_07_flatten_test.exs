@@ -18,4 +18,8 @@ defmodule Problem07FlattenTest do
     assert Problem07Flatten.flatten([1,[2,[3,[4,[5]]]]]) == [1,2,3,4,5]
   end
 
+  test "Flatten nested list into one list" do
+    assert Problem07Flatten.flatten([1,2,3,[4,5,[6,[7]]]]) == [1,2,3,4,5,6,7]
+  end
+
 end
