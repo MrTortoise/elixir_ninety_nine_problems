@@ -13,7 +13,7 @@ defmodule Problem08EliminateDuplicates do
 def eliminateDuplicates([]), do: []
 def eliminateDuplicates([h|t]), do: [h] ++ eliminateDuplicates(strip(h,t))
 
-def strip(item, []), do: []
+def strip(_, []), do: []
 def strip(item,[h|t]) when item == h, do: strip(item,t)
 def strip(item, [h|t]) when item != h, do: [h] ++ strip(item,t)
 end
