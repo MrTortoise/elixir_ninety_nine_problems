@@ -1,21 +1,17 @@
-defmodule Problem19RotateNLeft do
+defmodule Problem20RemoveKthItem do
   @moduledoc """
-  Documentation for Problem19RotateNLeft.
+  Documentation for Problem20RemoveKthItem.
   """
 
   @doc """
   Hello world.
 
   ## Examples
-      iex> Problem19RotateNLeft.rotate([],2)
+      iex> Problem20RemoveKthItem.removeAt([],2)
       []
   """
-def rotate([],_), do: []
-def rotate(list, 0), do: list
-def rotate([h|t], number), do: rotate(t, number-1, [h])
-
-def rotate(list, 0, tail), do: list ++ tail
-def rotate([h|t], number, tail), do: rotate(t, number-1, tail ++ [h])
-
+def removeAt([],_), do: []
+def removeAt([_|t],0), do: t
+def removeAt([h|t],number),do: [h] ++ removeAt(t,number-1 )
 
 end
