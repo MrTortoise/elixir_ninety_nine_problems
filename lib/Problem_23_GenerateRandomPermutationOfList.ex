@@ -17,6 +17,7 @@ def generatePermutation(list,numberOfPicks) do
   index = :rand.uniform(length)
   [getItemAtIndex(list,index)] ++ generatePermutation(list,numberOfPicks-1)
 end
+
 defp getItemAtIndex([],_), do: []
 defp getItemAtIndex([h|t],0), do: [h]
 defp getItemAtIndex([h|t],index), do: getItemAtIndex(t,index-1)
