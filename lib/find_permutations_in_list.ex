@@ -15,9 +15,15 @@ def flatten([h|t]), do: [h] ++ flatten([t])
 def expandTree(list), do: expandTree([],[],list)
 # def expand([x,[h|t]]), do: getPathToLeaf([],[x,[h|t]],[])
 
-defp expandTree(acc, parents, []), do: acc ++ [[parents]]
+defp expandTree(acc, parents, []), do: acc ++ [parents]
 defp expandTree(acc, parents, [item]) when not is_list(item), do: acc ++ [parents ++ [item]]
 defp expandTree(acc, parents, [h|[t]]) when is_list(t), do: expandTree(acc, parents++[h],t)
+defp expandTree(acc, parents, [h|t]) do
+  expandTree(
+  expandTree(acc,parents,t),
+  parents++[h], getStartOfNextList(t))
+  |> Enum.reverse
+end
 
 
 
