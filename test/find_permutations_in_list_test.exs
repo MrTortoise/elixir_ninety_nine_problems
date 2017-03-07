@@ -18,6 +18,8 @@ test "assert 3 item list gets all" do
   assert FindPermutationsInList.permute([1,2,3]) == [[1, [2, [3]], [3, [2]]], [2, [1, [3]], [3, [1]]], [3, [1, [2]], [2, [1]]]]
 end
 
+
+
 test "asserts expand 1 item" do
   assert FindPermutationsInList.expandTree([1]) == [[1]]
 end
@@ -32,6 +34,10 @@ end
 
 test "assert expand 2 items, second list" do
   assert FindPermutationsInList.expandTree([1,[2,3]]) == [[1,2],[1,3]]
+end
+
+test "unpack something with 2 parts" do
+  assert FindPermutationsInList.expandTree([[1, [2, [3]], [3, [2]]]]) == [[1,2,3],[1,3,2]]
 end
 
 
