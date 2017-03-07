@@ -10,13 +10,13 @@ test "single item list is single item" do
   assert FindPermutationsInList.permute([1]) == [[1]]
 end
 
-# test "assert 2 item list gets both" do
-#   assert FindPermutationsInList.permute([1,2]) == [[1,2],[2,1]]
-# end
-#
-# test "assert 3 item list gets all" do
-#   assert FindPermutationsInList.permute([1,2,3]) == [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-# end
+test "assert 2 item list gets both" do
+  assert FindPermutationsInList.permute([1,2]) == [[1, [2]], [2, [1]]]
+end
+
+test "assert 3 item list gets all" do
+  assert FindPermutationsInList.permute([1,2,3]) == [[1, [2, [3]], [3, [2]]], [2, [1, [3]], [3, [1]]], [3, [1, [2]], [2, [1]]]]
+end
 
 test "asserts expand 1 item" do
   assert FindPermutationsInList.expandTree([1]) == [[1]]

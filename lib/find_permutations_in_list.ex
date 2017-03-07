@@ -1,9 +1,9 @@
 defmodule FindPermutationsInList do
 
 def permute([]), do: []
-def permute(list) when is_list(list), do: Enum.map(list, fn x -> flatten(subPermute(list --[x],[x])) end)
+def permute(list) when is_list(list), do: Enum.map(list, fn x -> permute(list --[x],x) end)
 
-def subPermute(list, head), do: head ++ Enum.map(list, fn x-> subPermute(list -- [x], head++ [x]) end)
+defp permute(list, head), do: [head] ++ Enum.map(list, fn x-> permute(list -- [x], x) end)
 
 def flatten([]), do: []
 def flatten([item]) when is_list(item), do: flatten(item)
