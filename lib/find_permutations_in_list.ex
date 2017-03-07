@@ -5,6 +5,11 @@ def permute(list) when is_list(list), do: Enum.map(list, fn x -> flatten(subPerm
 
 def subPermute(list, head), do: head ++ Enum.map(list, fn x-> subPermute(list -- [x], head++ [x]) end)
 
+def flatten([]), do: []
+def flatten([item]) when is_list(item), do: flatten(item)
+def flatten([h|t]), do: [h] ++ flatten([t])
+
+
 # each route starts from a leaf and creates a list of all parents
 # this list needs to be gotten for every leaf of the tree
 def expandTree(list), do: expandTree([],[],list)
