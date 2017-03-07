@@ -26,13 +26,15 @@ test "assert expand 2 item" do
   assert FindPermutationsInList.expandTree([1,[2]]) == [[1,2]]
 end
 
-# test "assert expand 3 items" do
-#   assert FindPermutationsInList.expand([1,[2,[3]]]) == [[1,2,3]]
-# end
-#
+test "assert expand 3 items" do
+  assert FindPermutationsInList.expandTree([1,[2,[3]]]) == [[1,2,3]]
+end
+
 test "assert expand 2 items, second list" do
   assert FindPermutationsInList.expandTree([1,[2,3]]) == [[1,2],[1,3]]
 end
+
+
 
 test "assert get start of next list for empty list" do
   assert FindPermutationsInList.getStartOfNextList([]) == []
