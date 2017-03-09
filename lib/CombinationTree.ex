@@ -19,12 +19,12 @@ A tree list has the form of
       iex> CombinationTree.expandTree([1])
       [[1]]
 
-      iex> CombinationTree.expandTree([1,2])
+      iex> CombinationTree.expandTree([1,[2]])
       [[1,2]]
 
   """
   def expandTree(list), do: expandTree([],[],list)
-  defp expandTree(acc,parents,[]), do: acc ++ [parents]
+  defp expandTree(acc, parents, []), do: acc ++ [parents]
   defp expandTree(acc, parents, [item]) when not is_list(item), do: acc ++ [parents ++ [item]]
 
 end
