@@ -23,13 +23,18 @@ A tree list has the form of
       [[1,2]]
 
       iex> CombinationTree.expandTree([1,[2],[3]])
-      [[1,2],[1,3]]      
+      [[1,2],[1,3]]
 
   """
   def expandTree(list), do: expandTree([],[],list)
   defp expandTree(acc, parents, []), do: acc ++ [parents]
   # base case for final item in the list, add to the parents and append that to the accumulator.
   defp expandTree(acc, parents, [item]) when not is_list(item), do: acc ++ [parents ++ [item]]
-   defp expandTree(acc, parents, [h|[t]]), do: expandTree(acc, parents ++ [h],t)
+  # we have a branching list
+  defp expandTree(acc, parents, [list]) when Enum.count(list) > 2  do
+     [expandTree(acc, parents ++ [h],t)]
+  end
+  defp expandTree(acc, parents, [h|[t]]), do: expandTree(acc, parents ++ [h], t)
+
 
 end
